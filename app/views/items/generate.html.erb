@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="bg-success" style="align-items: center;">
+    <h1 style="padding: 10px;">ASIN generator</h1>
+  </div>
+  <h4>ログイン中：<%= @user %></h4>
+  <br>
+  <p style="font-weight: bold;">Amazonの検索URLを入力</p>
+  <div class="form-group"  style="width: 200px;">
+    <label for="maxnumber" class="col-form-label">取得上限数（最大：9600件）</label>
+    <input id="maxnumber" type="number" class="form-control" value="9600">
+  </div>
+  <div class="input-group" style="width: 350px;">
+    <span class="input-group-btn">
+      <button id="submit_url" class="btn btn-success" type="button" style="width: 80px;">取得開始</button>
+    </span>
+    <input type="text" id="input_url" class="form-control" placeholder="Input Amazon URL Here ..">
+  </div>
+  <% @tt=Time.now.strftime("_%Y%m%d%H%M") %>
+  <br>
+  <div>
+    <a href="#" id="output" download="list<%= @tt %>.txt" class="btn btn-success" style="width: 80px;">ASIN出力</a>
+  </div>
+  <br>
+  <div id="result"></div>
+</div>
+
+<%= javascript_include_tag 'items_generate', 'data-turbolinks-track': 'reload'  %>

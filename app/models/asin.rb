@@ -1,0 +1,2 @@
+class Asin < ApplicationRecord
+end
