@@ -11,6 +11,18 @@
     <%= javascript_include_tag 'handsontable.full', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'encoding', 'data-turbolinks-track': 'reload'  %>
     <%= include_gon %>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-101664431-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-101664431-3');
+    </script>
+
+
   </head>
 
   <body>
