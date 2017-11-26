@@ -34,6 +34,7 @@ $("#submit_url").click(function () {
   var url = document.getElementById("input_url").value;
   var pgnum = 1;
   var cnum = 0;
+  handsontable.loadData(mydata);
   repajax(url,pgnum,cnum);
 });
 
@@ -81,7 +82,8 @@ function repajax(url,pgnum,cnum){
         handsontable.loadData(org_data);
         pgnum++;
         cnum = cnum + org_data.length;
-        repajax(url,pgnum,cnum);
+        sleep(1500,repajax(url,pgnum,cnum));
+        //repajax(url,pgnum,cnum);
       }
 
     },
@@ -116,3 +118,8 @@ $("#output").click(function () {
       document.getElementById("output").href = window.URL.createObjectURL(blob);
   }
 });
+
+
+function sleep(time, callback){
+  setTimeout(callback, time);
+}

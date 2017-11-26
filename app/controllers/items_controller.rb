@@ -18,14 +18,10 @@ class ItemsController < ApplicationController
     maxnum = body[2]
     cnum = body[3]
 
-    logger.debug(maxnum)
-    logger.debug("\n")
-    logger.debug(cnum)
-
     user = current_user.email
 
     check = Asin.find_by(user: user)
-    logger.debug(check)
+
     j = 0
     data = []
     charset = nil
@@ -41,7 +37,8 @@ class ItemsController < ApplicationController
     rescue OpenURI::HTTPError => error
       response = error.io
       logger.debug("\nNo." + pgnum.to_s + "\n")
-      logger.debug("error!!")
+      logger.debug("error!!\n")
+      logger.debug(error)
     end
 
     doc = Nokogiri::HTML.parse(html, charset)
