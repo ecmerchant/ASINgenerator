@@ -73,6 +73,8 @@ function repajax(url,pgnum,cnum){
         }
       }
 
+      var ddnum = org_data.length;
+
       Array.prototype.push.apply(org_data, resData);
       if(org_data.length > maxnum){
         org_data.length = maxnum;
@@ -81,7 +83,7 @@ function repajax(url,pgnum,cnum){
       }else{
         handsontable.loadData(org_data);
         pgnum++;
-        cnum = cnum + org_data.length;
+        //cnum = cnum + ddnum;
         sleep(1500,repajax(url,pgnum,cnum));
         //repajax(url,pgnum,cnum);
       }
