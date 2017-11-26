@@ -30,7 +30,7 @@ var handsontable = new Handsontable(container, {
 
 
 $("#submit_url").click(function () {
-
+  alert("ASINの取得を開始します");
   var url = document.getElementById("input_url").value;
   var pgnum = 1;
   var cnum = 0;
@@ -62,7 +62,7 @@ function repajax(url,pgnum,cnum){
     dataType: 'json',
     success: function (resData) {
       if(resData == ""){
-        alert("ok");
+        alert("終了しました");
         return;
       }
       var org_data = handsontable.getData();
