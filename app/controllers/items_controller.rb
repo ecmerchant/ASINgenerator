@@ -31,8 +31,6 @@ class ItemsController < ApplicationController
 
     ua = CSV.read('app/others/User-Agent.csv', headers: false, col_sep: "\t")
     uanum = ua.length
-
-    #user_agent = "Mozilla/5.0 (Windows NT 6.1; rv:28.0) Gecko/20100101 Firefox/28.0"
     user_agent = ua[rand(uanum)][0]
     logger.debug("\n\nagent is ")
     logger.debug(user_agent)
