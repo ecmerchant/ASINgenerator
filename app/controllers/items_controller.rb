@@ -21,8 +21,6 @@ class ItemsController < ApplicationController
 
     user = current_user.email
 
-    check = Asin.find_by(user: user)
-
     j = 0
     data = []
     charset = nil
@@ -55,22 +53,6 @@ class ItemsController < ApplicationController
       end
       data[j] = []
       data[j][0] = list.value
-
-      if check == nil then
-        Asin.create(
-          user: user,
-          asin: list.value
-        )
-        check = Asin.find_by(user: user)
-      else
-        check2 = Asin.find_by(asin: list.value)
-        if check2 == nil then
-          Asin.create(
-            user: user,
-            asin: list.value
-          )
-        end
-      end
 
       j += 1
     end
