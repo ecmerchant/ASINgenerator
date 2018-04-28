@@ -25,8 +25,17 @@ class ItemsController < ApplicationController
     data = []
     charset = nil
 
-    url = org_url + '&page=' + pgnum.to_s
-
+    pos = org_url.index('&page=')
+    if pos == nil then
+      url = org_url + '&page=' + pgnum.to_s
+      logger.debug('Case1')
+      logger.debug(url)
+    else
+      ipg = org_url.match(/&page=([\s\S]*?)&/)[0]
+      url = org_url.gsub(ipg,'&page=' + pgnum.to_s + '&')
+      logger.debug('Case2')
+      logger.debug(url)
+    end
     ua = CSV.read('app/others/User-Agent.csv', headers: false, col_sep: "\t")
     uanum = ua.length
     user_agent = ua[rand(uanum)][0]
