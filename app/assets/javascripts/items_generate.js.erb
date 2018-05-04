@@ -30,6 +30,10 @@ var handsontable = new Handsontable(container, {
 
 
 $("#submit_url").click(function () {
+
+  alert("サーバダウン中のため復旧中です。ご迷惑をおかけしています。有料版のエクセルツールでは引き続き、日本、アメリカ、オーストラリアのASINを取得可能です。");
+  return;
+  
   alert("ASINの取得を開始します");
   var url = document.getElementById("input_url").value;
   var pgnum = 1;
