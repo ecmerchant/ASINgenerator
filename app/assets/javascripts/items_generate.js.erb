@@ -30,10 +30,6 @@ var handsontable = new Handsontable(container, {
 
 
 $("#submit_url").click(function () {
-
-  alert("アクセス増加のため動作が不安定です。ご迷惑をおかけしています。有料版のエクセルツールでは引き続き、日本、アメリカ、オーストラリアのASINを取得可能です。");
-  //return;
-
   alert("ASINの取得を開始します");
   var url = document.getElementById("input_url").value;
   var pgnum = 1;
@@ -49,12 +45,6 @@ function repajax(url,pgnum,cnum){
     maxnum = 9600;
   }
   maxnum = Number(maxnum);
-
-  var max = 500;
-  var min = 100;
-  var a = Math.floor( Math.random() * (max + 1 - min) ) + min ;
-
-  maxnum = a;
 
   var body = [];
   body[0] = url;
