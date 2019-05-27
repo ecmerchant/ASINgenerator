@@ -1,38 +1,38 @@
 <div class="container">
-  <div class="bg-success" style="align-items: center;">
-    <h1 style="padding: 10px;">ASIN generator&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>product by <a href="http://ec-merchant.com">ec-merchant.com</a></small></h1>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="bg-success">
+        <h1 style="padding: 15px;"><a href="https://ec-merchant.com" target="_blank"><%= image_tag('ecmerchant_small.png', :height => '60px;') %></a><b>ASIN generator</b><small style="margin-left:10px;">- ASIN収集ツール -</small><small style="margin-left:40px;font-size:12pt;">ログイン中：<%= @user %></small></h1>
+      </div>
+      <div class="col-lg-12">
+        <h3>Amazonの検索URLを入力後に取得開始ボタンをクリック。日米欧の各アマゾン対応。</h3>
+        <h4 style="color: red;">【注意！】無料公開のためアクセスが込み合っている場合は上手くASINが取得できません。時間をおいてお試しください。</h4>
+        <h4>こちらのサイトは「<a href="https://ec-merchant.com" target="_blank">ECマーシャント</a>」が運営しています。Amazonをはじめ各ECサイト向けに物販ツールを開発します。<br>またアマゾン販売に便利な<a href="https://ec-merchant.com/10390" target="_blank">こちらのツール</a>もご覧ください。</h4>
+        <div class="form-inline">
+          <label for="maxnumber" class="col-form-label">取得上限数（最大：9600件）</label>
+          <input id="maxnumber" type="number" class="form-control" value="9600" style="width:100px; margin-right:20px;">
+          <label for="input_url" class="col-form-label">検索URLの入力</label>
+          <input type="text" id="input_url" class="form-control" placeholder="Input Amazon URL Here ..">
+          <button id="submit_url" class="btn btn-primary" type="button" style="width: 100px;">取得開始</button>
+          <% @tt=Time.now.strftime("_%Y%m%d%H%M") %>
+          <a href="#" id="output" download="list<%= @tt %>.txt" class="btn btn-warning" style="width: 100px; margin-left:20px">ASIN出力</a>
+        </div>
+        <br>
+        <div id="result"></div>
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center;"
+             data-ad-layout="in-article"
+             data-ad-format="fluid"
+             data-ad-client="ca-pub-4787566576871304"
+             data-ad-slot="3840844145"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
   </div>
-  <h4>ログイン中：<%= @user %></h4>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <ins class="adsbygoogle"
-       style="display:block; text-align:center;"
-       data-ad-layout="in-article"
-       data-ad-format="fluid"
-       data-ad-client="ca-pub-4787566576871304"
-       data-ad-slot="3840844145"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <br>
-  ご利用ありがとうございます。ツールにご満足頂けたら広告のクリックをお願いします。
-  <p style="font-weight: bold;">Amazonの検索URLを入力</p>
-  <div class="form-group"  style="width: 200px;">
-    <label for="maxnumber" class="col-form-label">取得上限数（最大：9600件）</label>
-    <input id="maxnumber" type="number" class="form-control" value="9600">
-  </div>
-  <div class="input-group" style="width: 350px;">
-    <span class="input-group-btn">
-      <button id="submit_url" class="btn btn-success" type="button" style="width: 80px;">取得開始</button>
-    </span>
-    <input type="text" id="input_url" class="form-control" placeholder="Input Amazon URL Here ..">
-  </div>
-  <% @tt=Time.now.strftime("_%Y%m%d%H%M") %>
-  <br>
-  <div>
-    <a href="#" id="output" download="list<%= @tt %>.txt" class="btn btn-success" style="width: 80px;">ASIN出力</a>
-  </div>
-  <br>
-  <div id="result"></div>
 </div>
 
 <%= javascript_include_tag 'items_generate', 'data-turbolinks-track': 'reload'  %>

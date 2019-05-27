@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
     end
 
     doc = Nokogiri::HTML.parse(html, charset)
-    doc.css('li/@data-asin').each do |list|
+    doc.css('div/@data-asin').each do |list|
       cnum += 1
       logger.debug(cnum)
       if cnum > maxnum then
